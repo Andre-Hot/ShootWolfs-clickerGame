@@ -1,0 +1,26 @@
+body {
+    background-image: url('./images/130.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin:auto;
+
+}
+
+#game_elements_snowball {
+    z-index: 1;
+    border-width: 1px;
+    border-color: white;
+    border-style: solid;
+    position:absolute;
+    left: 50%;
+}
+
+#snowball {
+    width: 500px;
+    height: 500px;
+    margin-left: 550px;
+    margin-top:500px;
+}
