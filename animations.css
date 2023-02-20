@@ -1,0 +1,17 @@
+.falling {
+    animation-name: falling;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes falling {
+    0% {
+        transform: translate(0, -300%);
+    }
+    100%{
+        transform: translate(0, 300%);
+    }
+}
+
+
