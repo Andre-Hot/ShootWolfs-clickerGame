@@ -12,31 +12,31 @@ body {
 #game_elements_snowball {
     z-index: 1;
     border-width: 1px;
-    border-color: white;
+    border-color: blue;
     border-style: solid;
     position:absolute;
-    left: 50%;
+    right: 100%;
 }
 
 #snowball {
-    width: 50px;
-    height: 50px;
-    margin-left: 55px;
-    margin-top:50px;
+    width: 500px;
+    height: 500px;
+    margin-left: 20px;
+    margin-top:20px;
 }
 
 #snowPosition {
-    translate: 0 -20%;
-    scale: 0,1;
+    translate: 0 -100%;
+    scale: 0,5;
     position: absolute;
-    z-index: 9;
+    z-index: 15;
 }
 
 #counter {
     width: 100px;
     position: absolute;
     top: 0px;
-    left: 10px;
+    left: 50px;
 }
 
 #game_background {
