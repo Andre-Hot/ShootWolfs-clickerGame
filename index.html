@@ -1,52 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winter-Game</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Winter Game</title>
+
+    <link rel="icon" href="#" type="image/x-icon" />
     <link rel="stylesheet" href="app.css" />
 </head>
+
 <body>
     <div id="screen">
         <div id="game">
             <div id="game_background"></div>
             <div id="game_elements">
-                <div id="wolf_container">
-                    <img id="wolf_sprite" src="images/wolf.png"/>
+                <div id="wolf1_container">
+                    <img src="images/wolf.png" alt="wolf" id="wolf1_sprite" />
                 </div>
-                <div id="wolf_container2">
-                    <img id="wolf_sprite2" src="images/wolf.png"/> 
+                <div id="wolf2_container">
+                    <img src="images/wolf.png" alt="wolf" id="wolf2_sprite" />
                 </div>
-                <div id="deer_container">
-                    <img id="deer_sprite" src="images/deer.png"/>
+                <div id="wolf3_container">
+                    <img src="images/wolf.png" alt="wolf" id="wolf3_sprite" />
                 </div>
-                <div id="deer_container2">
-                    <img id="deer_sprite2" src="images/deer.png"/>
+                <div id="deer1_container">
+                    <img src="images/deer.png" alt="deer" id="deer1_sprite" />
                 </div>
+                <div id="deer2_container">
+                    <img src="images/deer.png" alt="deer" id="deer2_sprite" />
+                </div>
+                <div id="deer3_container">
+                    <img src="images/deer.png" alt="deer" id="deer1_sprite" />
+                </div>
+                
             </div>
-            </div>
-            <div id="game_foreground">
-            </div>
-            <div id="game-ui">
+            <div id="game_foreground"></div>
+            <div id="game_ui">
                 <div id="score_board">
                     <span id="point_count">0</span>
+                    <img src="images/counter.png" id="counter_sprite" />
                 </div>
                 <div id="life_board">
-                    <img id="heart1" src="images/heart.png" class="active_heart"/>
-                    <img id="heart2" src="images/heart.png" class="active_heart"/>
-                    <img id="heart3" src="images/heart.png" class="active_heart"/>
+                    <img src="images/heart.png" id="heart0" class="active_heart" />
+                    <img src="images/heart.png" id="heart1" class="active_heart" />
+                    <img src="images/heart.png" id="heart2" class="active_heart" />
                 </div>
-                <div id="time_board"></div>
+                <div id="time_board">
+                    <div id="time_container">
+                        <div id="time_sprite"></div>
+                    </div>
                 </div>
             </div>
-        <div id="start"></div>
+        </div>
+        <div id="start">
+            <h2>Winter Game</h2>
+            <p>eliminate 20 wolfs before time runs out!</p>
+            <p> avoid shooting deer while hunting</p>
+            <button id="btn_start" class="pulse">Start</button>
+        </div>
         <div id="game_over" class="hidden">
-
+            <h2>Game Over 😵</h2>
+            <!-- <button id="btn_startMenu">Start Menu</button> -->
+            <button id="btn_restart" class="pulse">Restart game</button>
         </div>
         <div id="level_complete" class="hidden">
+            <h2>Level Complete</h2>
+            <p id="endText"></p>
+            <button id="btn_go_to_start" class="pulse">Go to start</button>
         </div>
     </div>
+
+    <!-- musik og lyd elementer -->
+    <audio src="sounds/game_over.mp3" id="sound_gameOver"></audio>
+    <audio src="sounds/level-win.mp3" id="sound_levelComplete"></audio>
+    <audio src="sounds/hunting.mp3" id="sound_hunting"></audio>
+    <audio src="sounds/gunshot.mp3" id="sound_gunshot"></audio>
+    <audio src="sounds/dog-shot.mp3" id="sound_dogshot"></audio>
+
     <script src="app.js"></script>
 </body>
+
 </html>
