@@ -67,9 +67,6 @@ h2 {
     display: none;
 }
 
-/* =====================
-    Alle game elements
-======================== */
 
 #wolf1_container {
     position: absolute;
@@ -111,9 +108,6 @@ h2 {
     width: 25%;
 }
 
-/* =====================
-    Alle ui elements
-======================== */
 #game_ui {
     position: absolute;
     top: 1vw;
@@ -135,7 +129,7 @@ h2 {
 #point_count {
     white-space: nowrap;
     text-align: right;
-    padding-top: 1vw;
+    padding-top: 3vw;
 }
 
 #score_board_sprite {
@@ -160,8 +154,6 @@ h2 {
     filter: grayscale(75%) blur(0.5px);
 }
 
-/* Timer */
-
 #time_board {
     position: relative;
 }
@@ -180,13 +172,9 @@ h2 {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: limegreen;
+    background-color: snow;
     transform-origin: right;
 }
-
-/* ===================
-    Start skærm
-====================== */
 
 @keyframes pulse_kf {
     0% {
@@ -223,9 +211,6 @@ p {
     margin: 1em 0 1.5em;
 }
 
-/* ===================
-    Duck animation
-====================== */
 .wolf_move1 {
     animation-name: wolf_move_right1;
     animation-duration: 11s;
@@ -283,9 +268,6 @@ p {
     }
 }
 
-/* ===================
-    Goose animation
-====================== */
 
 .deer_move1 {
     animation-name: deer_move_right1;
@@ -293,7 +275,7 @@ p {
     animation-delay: 15s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
 }
 
 .deer_move2 {
@@ -302,7 +284,7 @@ p {
     animation-delay: 15s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
 }
 
 @keyframes deer_move_right1 {
@@ -325,10 +307,6 @@ p {
     }
 }
 
-/* =================
-    Dog animation
-==================== */
-
 .deer_move1 {
     animation-name: deer_move1;
     animation-duration: 13s;
@@ -349,10 +327,6 @@ p {
     }
 }
 
-
-/* ===================
-    General animation
-====================== */
 
 .zoom_out {
     animation-name: zoom_out;
@@ -400,8 +374,6 @@ p {
     animation-play-state: paused;
 }
 
-/* ========== Timer Animationer ==========*/
-
 .shrink {
     animation-name: shrink_kf;
     animation-duration: 40s;
@@ -413,7 +385,7 @@ p {
 @keyframes shrink_kf {
     0% {
         scale: 1 1;
-        background-color: limegreen;
+        background-color: rgb(50, 112, 205);
     }
 
     50% {
@@ -426,9 +398,6 @@ p {
     }
 }
 
-/* ===================
-    Animal positions
-====================== */
 
 .positionWolf1 {
     top: 21%;
