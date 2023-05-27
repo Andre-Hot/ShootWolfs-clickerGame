@@ -1,7 +1,7 @@
 "use strict";
 window.addEventListener("load", ready);
 
-//globale variabler
+
 let points = 0;
 let lives = 3;
 
@@ -9,33 +9,31 @@ function ready() {
   console.log("JavaScript is ready!");
   document.querySelector("#btn_start").addEventListener("click", startGame);
   document.querySelector("#btn_restart").addEventListener("click", startGame);
-  document
-    .querySelector("#btn_go_to_start")
-    .addEventListener("click", showStartScreen);
+  document.querySelector("#btn_start").addEventListener("click", showStartScreen);
 }
 
 function startGame() {
   console.log("Game starts");
 
-  // Sætter liv og points til start værdier
+  // reeseter alle værdier
   resetLives();
   resetPoints();
   showGameScreen();
 
-  // starter baggrundsmusik
+  //baggrundsmusik On 
   document.querySelector("#sound_hunting").volume = 0.1;
   document.querySelector("#sound_hunting").play();
 
-  // skjuler start skærmen efter spillet starter
+  //startskærm forsvinder
   document.querySelector("#start").classList.add("hidden");
 
-  // Til føjer bevægelse til hver container
+  //bevægelse til container
   startAnimationer();
 
-  // start timer
+  //timer starter
   startTimer();
 
-  // Tilføjer start positioner til containerne
+  //  start positioner til containerne
   startPositioner();
 
   // Tilføjer click event til hver container
