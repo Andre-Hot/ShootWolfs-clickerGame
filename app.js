@@ -43,9 +43,6 @@ function startGame() {
   positionRestart();
 }
 
-// ========================== \\
-// ===== Start elements ===== \\
-// ========================== \\
 
 function startAnimationer() {
   document.querySelector("#wolf1_container").classList.add("wolf_move1");
@@ -168,11 +165,8 @@ function timeIsUp() {
   }
 }
 
-// ======================== \\
-// ====== Scoreboard ====== \\
-// ======================== \\
 
-// Tæller points for duck
+
 function incrementWolfPoints() {
   console.log("incrementWolfPoints");
   points++;
@@ -185,13 +179,12 @@ function incrementWolfPoints() {
   displayPoints();
 }
 
-// Tilføjer points til scoreboard
+
 function displayPoints() {
   console.log("displayNumber");
   document.querySelector("#point_count").textContent = points;
 }
 
-// Tæller lives
 function decrementLives() {
   console.log("decrementLives");
   lives--;
@@ -203,16 +196,13 @@ function decrementLives() {
   }
 }
 
-// fjerner lives fra lifeboard
+
 function displayDecrementedLives() {
   console.log("displayDecrementedLives");
   document.querySelector("#heart" + lives).classList.remove("active_heart");
   document.querySelector("#heart" + lives).classList.add("broken_heart");
 }
 
-// ========================= \\
-// ====== End of game ====== \\
-// ========================= \\
 
 function gameOver() {
   console.log("gameOver");
@@ -234,132 +224,123 @@ function levelComplete() {
 }
 
 function stopGame() {
-  // Stopper musik
+  
   document.querySelector("#sound_hunting").pause();
-  document.querySelector("#sound_dogshot").pause();
+  document.querySelector("#sound_shootWolf").pause();
   document.querySelector("#sound_hunting").currentTime = 0;
-  // fjerner click
+  
   document
-    .querySelector("#duck1_container")
+    .querySelector("#deer1_container")
     .removeEventListener("click", duckClick);
   document
-    .querySelector("#duck2_container")
+    .querySelector("#deer2_container")
     .removeEventListener("click", duckClick);
   document
-    .querySelector("#duck3_container")
+    .querySelector("#deer3_container")
     .removeEventListener("click", duckClick);
   document
-    .querySelector("#dog1_container")
+    .querySelector("#wolf1_container")
     .removeEventListener("click", dogClick);
   document
-    .querySelector("#dog2_container")
+    .querySelector("#wolf2_container")
     .removeEventListener("click", dogClick);
   document
-    .querySelector("#goose1_container")
+    .querySelector("#wolf3_container")
     .removeEventListener("click", gooseClick);
-  document
-    .querySelector("#goose2_container")
-    .removeEventListener("click", gooseClick);
+ 
 
-  // Stopper animation
+  
   document
-    .querySelector("#duck1_container")
+    .querySelector("#deer1_container")
     .classList.remove("duck_move1", "duck_move2", "duck_move3");
   document
-    .querySelector("#duck2_container")
+    .querySelector("#deer2_container")
     .classList.remove("duck_move1", "duck_move2", "duck_move3");
   document
-    .querySelector("#duck3_container")
+    .querySelector("#deer3_container")
     .classList.remove("duck_move1", "duck_move2", "duck_move3");
   document
-    .querySelector("#goose1_container")
+    .querySelector("#wolf1_container")
     .classList.remove("goose_move1", "goose_move2");
   document
-    .querySelector("#goose2_container")
+    .querySelector("#wolf2_container")
     .classList.remove("goose_move1", "goose_move2");
   document
-    .querySelector("#dog1_container")
+    .querySelector("#wolf3_container")
     .classList.remove("dog_move1", "dog_move2");
-  document
-    .querySelector("#dog2_container")
-    .classList.remove("dog_move1", "dog_move2");
-
-  // Fjerner timer
+  
   document.querySelector("#time_sprite").classList.remove("shrink");
 }
 
-// ======================================== \\
-// ====== Clicking on a good element ====== \\
-// ======================================== \\
 
-function duckClick() {
-  console.log("duckClick");
-  // Laver lokal variabel
-  let duck = this;
-  // forhindre gentagne clicks
-  duck.removeEventListener("click", duckClick);
 
-  // stop duck container
-  duck.classList.add("paused");
+function deerClick() {
+  console.log("deerClick");
+  
+  let deer = this;
+ 
+  deer.removeEventListener("click", deerClick);
 
-  // sæt forsvind-animation på coin sprite
-  duck.querySelector("img").classList.add("zoom_out");
 
-  // når forsvind animationen er færdig, duckGone
-  duck.addEventListener("animationend", duckGone);
+  deer.classList.add("paused");
 
-  // Afspillet duck-lyd
+  
+  deer.querySelector("img").classList.add("zoom_out");
+
+
+  deer.addEventListener("animationend", deerGone);
+
+ 
   document.querySelector("#sound_gunshot").currentTime = 0;
   document.querySelector("#sound_gunshot").volume = 0.05;
   document.querySelector("#sound_gunshot").play();
 
-  // Tilføjer +1 til points ved click
-  incrementDuckPoints();
+ 
+  incrementDeerPoints();
 }
 
-function duckGone() {
-  console.log("duckGone");
-  // Laver lokal variabel
-  let duck = this;
+function deerGone() {
+  console.log("deerGone");
+  
+  let deer = this;
 
-  //Fjerner evnet der startede functionen
-  duck.removeEventListener("animationend", duckGone);
+  deer.removeEventListener("animationend", deerGone);
 
-  //Fjerner class med forsvind animation
-  duck.querySelector("img").classList.remove("zoom_out");
 
-  //Fjerner pause fra container
-  duck.classList.remove("paused");
+  deer.querySelector("img").classList.remove("zoom_out");
 
-  // genstarter animationen for container
-  duckRestart.call(this);
-  // Tilføjer event så anden kan klikkes på igen
-  duck.addEventListener("click", duckClick);
+
+  deer.classList.remove("paused");
+
+ 
+  deerRestart.call(this);
+  
+  deer.addEventListener("click", deerClick);
 }
 
-function duckRestart() {
-  console.log("duckRestart");
-  // laver lokal variabel
-  let duck = this;
+function deerRestart() {
+  console.log("deerRestart");
+  
+  let deer = this;
 
-  // Genstarter bevægelsen fra venstre mod højre
-  duck.classList.remove("duck_move1", "duck_move2", "duck_move3");
+ 
+  deer.classList.remove("deer_move1", "deer_move2", "deer_move3");
 
   let move = Math.floor(Math.random() * 3) + 1;
-  duck.classList.add("duck_move" + move);
+  deer.classList.add("deer_move" + move);
 
-  // Sætter nu position for container
-  duck.classList.remove("positionDuck1", "positionDuck2", "positionDuck3");
+  
+  deer.classList.remove("positionDeer1", "positionDeer2", "positionDeer3");
 
   let pos = Math.floor(Math.random() * 3) + 1;
 
-  duck.classList.add("positionDuck" + pos);
+  deer.classList.add("positionDeer" + pos);
 
-  // sææter nu speed for container
-  duck.classList.remove("speed1", "speed2", "speed3", "speed4", "speed5");
+  
+  deer.classList.remove("speed1", "speed2", "speed3", "speed4", "speed5");
 
   let speed = Math.floor(Math.random() * 5) + 1;
-  duck.classList.add("speed" + speed);
+  deer.classList.add("speed" + speed);
 }
 
 // =========== Goose elements ============ \\
