@@ -343,151 +343,146 @@ function deerRestart() {
   deer.classList.add("speed" + speed);
 }
 
-// =========== Goose elements ============ \\
 
-function gooseClick() {
-  console.log("gooseClick");
-  // Laver lokal variabel
-  let goose = this;
-  // forhindre gentagne clicks
-  goose.removeEventListener("click", gooseClick);
+function wolfClick() {
+  console.log("wolfClick");
+  
+  let wolf = this;
+  
+  wolf.removeEventListener("click", wolfClick);
 
-  // stop goose container
-  goose.classList.add("paused");
 
-  // sæt forsvind-animation på goose sprite
-  goose.querySelector("img").classList.add("zoom_out");
+  wolf.classList.add("paused");
 
-  // når forsvind animationen er færdig, gooseGone
-  goose.addEventListener("animationend", gooseGone);
+  
+  wolf.querySelector("img").classList.add("zoom_out");
 
-  // Afspillet goose-lyd
+ 
+  wolf.addEventListener("animationend", wolfGone);
+
+  
   document.querySelector("#sound_gunshot").currentTime = 0;
   document.querySelector("#sound_gunshot").volume = 0.05;
   document.querySelector("#sound_gunshot").play();
 
-  // Tilføjer +2 til points ved click
-  incrementGoosePoints();
+ 
+  incrementWolfPoints();
 }
 
-function gooseGone() {
-  console.log("gooseGone");
-  // Laver lokal variabel
-  let goose = this;
+function wolfGone() {
+  console.log("wolfGone");
+  
+  let wolf = this;
 
-  //Fjerner evnet der startede functionen
-  goose.removeEventListener("animationend", gooseGone);
 
-  //Fjerner class med forsvind animation
-  goose.querySelector("img").classList.remove("zoom_out");
+  wolf.removeEventListener("animationend", wolfGone);
 
-  //Fjerner pause fra container
-  goose.classList.remove("paused");
+ 
+  wolf.querySelector("img").classList.remove("zoom_out");
 
-  // genstarter animationen for container
-  gooseRestart.call(this);
-  // Tilføjer event så anden kan klikkes på igen
-  goose.addEventListener("click", gooseClick);
+  
+  wolf.classList.remove("paused");
+
+  
+  wolfRestart.call(this);
+  
+  wolf.addEventListener("click", wolfClick);
 }
 
-function gooseRestart() {
-  console.log("gooseRestart");
-  // laver lokal variabel
-  let goose = this;
+function wolfRestart() {
+  console.log("wolfRestart");
+  
+  let wolf = this;
 
-  //Genstarter bevægelse fra venstre mod højre
-  goose.classList.remove("goose_move1", "goose_move2");
-  goose.offsetWidth;
+  
+  wolf.classList.remove("wolf_move1", "wolf_move2");
+  wolf.offsetWidth;
   let move = Math.floor(Math.random() * 2) + 1;
-  goose.classList.add("goose_move" + move);
+  wolf.classList.add("wolf_move" + move);
 
-  // Sætter nu position for container
-  goose.classList.remove("positionGoose1", "positionGoose2");
+  
+  wolf.classList.remove("positionWolf1", "positionWolf2");
   let pos = Math.floor(Math.random() * 2) + 1;
-  goose.classList.add("positionGoose" + pos);
+  wolf.classList.add("positionWolf" + pos);
 
-  // sææter nu speed for container
-  goose.classList.remove("speed1", "speed2", "speed3", "speed4", "speed5");
+  
+  wolf.classList.remove("speed1", "speed2", "speed3", "speed4", "speed5");
   let speed = Math.floor(Math.random() * 5) + 1;
-  goose.classList.add("speed" + speed);
+  wolf.classList.add("speed" + speed);
 }
 
-// ======================================= \\
-// ====== Clicking on a bad element ====== \\
-// ======================================= \\
 
-// function for når den første hund klikkes på
-function dogClick() {
-  console.log("dogClick");
 
-  // laver lokal variabel
-  let dog = this;
-  //Fjerner event så hun ikke kan klikkes på igen
-  dog.removeEventListener("click", dogClick);
+function wolfClick() {
+  console.log("wolfClick");
 
-  // pauser move animationen for hund-container
-  dog.classList.add("paused");
+  
+  let wolf = this;
+ 
+  wolf.removeEventListener("click", wolfClick);
 
-  // laver zoom_out animation på selve spriten af hunden
-  dog.querySelector("img").classList.add("zoom_out");
+  
+  wolf.classList.add("paused");
 
-  //når forsvind animationen er færdig så kør dogGone event
-  dog.addEventListener("animationend", dogGone);
+  
+  wolf.querySelector("img").classList.add("zoom_out");
 
-  // Afspillet dog-lyd
+ 
+  dog.addEventListener("animationend", wolfGone);
+
+  
   document.querySelector("#sound_gunshot").currentTime = 0;
   document.querySelector("#sound_gunshot").volume = 0.05;
   document.querySelector("#sound_gunshot").play();
 
-  document.querySelector("#sound_dogshot").currentTime = 0;
-  document.querySelector("#sound_dogshot").volume = 0.1;
-  document.querySelector("#sound_dogshot").play();
+  document.querySelector("#sound_wolfshot").currentTime = 0;
+  document.querySelector("#sound_wolfshot").volume = 0.1;
+  document.querySelector("#sound_wolfshot").play();
 
-  // fjern -1 fra lives ved click
+  
   decrementLives();
 }
 
-// funtion til at få hunden tilbage på skærmen
-function dogGone() {
-  console.log("dogGone");
-  let dog = this;
-  //Fjerner evnet der startede functionen
-  dog.removeEventListener("animationend", dogGone);
+function wolfGone() {
+  console.log("wolfGone");
+  let wolf = this;
 
-  //Fjerner class med forsvind animation
-  dog.querySelector("img").classList.remove("zoom_out");
+  wolf.removeEventListener("animationend", wolfGone);
 
-  //Fjerner pause fra container
-  dog.classList.remove("paused");
 
-  //Genstarter bevægelse fra venstre mod højre
-  dogRestart.call(this);
+  wolf.querySelector("img").classList.remove("zoom_out");
 
-  // Tilføjer event så anden kan klikkes på igen
-  dog.addEventListener("click", dogClick);
+ 
+  wolf.classList.remove("paused");
+
+  
+  wolfRestart.call(this);
+
+  
+  wolf.addEventListener("click", wolfClick);
 }
 
-function dogRestart() {
-  console.log("dogRestart");
-  // laver lokal variabel
-  let dog = this;
+function wolfRestart() {
+  console.log("wolfRestart");
+  
+  let wolf = this;
 
-  //Genstarter bevægelse fra venstre mod højre
-  dog.classList.remove("dog_move1", "dog_move2");
+ 
+  wolf.classList.remove("wolf_move1", "wolf_move2");
   let move = Math.floor(Math.random() * 2) + 1;
-  dog.classList.add("dog_move" + move);
+  dog.classList.add("wolf_move" + move);
 
-  // Sætter nu position for container
+  
   dog.classList.remove("positionDog1", "positionDog2");
 
   let pos = Math.floor(Math.random() * 2) + 1;
 
-  dog.classList.add("positionDog" + pos);
+  dog.classList.add("positionWolf" + pos);
 
-  // sææter nu speed for container
-  dog.classList.remove("speedDog1", "speedDog2");
+  
+  dog.classList.remove("speedWolf1", "speedWolf2");
 
   let speed = Math.floor(Math.random() * 2) + 1;
-  dog.classList.add("speedDog" + speed);
-  console.log(`speed af ny dog er ${speed}`);
+  wolf.classList.add("speedWolf" + speed);
+  console.log(`speed af Wolf ${speed}`);
 }
