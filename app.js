@@ -428,7 +428,7 @@ function wolfClick() {
   wolf.querySelector("img").classList.add("zoom_out");
 
  
-  dog.addEventListener("animationend", wolfGone);
+  wolf.addEventListener("animationend", wolfGone);
 
   
   document.querySelector("#sound_gunshot").currentTime = 0;
@@ -473,14 +473,14 @@ function wolfRestart() {
   dog.classList.add("wolf_move" + move);
 
   
-  dog.classList.remove("positionDog1", "positionDog2");
+  wolf.classList.remove("positionWolf1", "positionWolf2");
 
   let pos = Math.floor(Math.random() * 2) + 1;
 
-  dog.classList.add("positionWolf" + pos);
+  wolf.classList.add("positionWolf" + pos);
 
   
-  dog.classList.remove("speedWolf1", "speedWolf2");
+  wolf.classList.remove("speedWolf1", "speedWolf2");
 
   let speed = Math.floor(Math.random() * 2) + 1;
   wolf.classList.add("speedWolf" + speed);
