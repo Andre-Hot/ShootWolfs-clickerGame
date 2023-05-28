@@ -15,31 +15,28 @@ function ready() {
 function startGame() {
   console.log("Game starts");
 
-  // reeseter alle værdier
+  
   resetLives();
   resetPoints();
   showGameScreen();
 
-  //baggrundsmusik On 
+
   document.querySelector("#sound_hunting").volume = 0.1;
   document.querySelector("#sound_hunting").play();
 
-  //startskærm forsvinder
+  
   document.querySelector("#start").classList.add("hidden");
 
-  //bevægelse til container
   startAnimationer();
 
-  //timer starter
   startTimer();
 
-  //  start positioner til containerne
+
   startPositioner();
 
-  // Tilføjer click event til hver container
+
   startClick();
 
-  // Tilføjer event så containerne har en ny position når der er kørt over skærmen.
   positionRestart();
 }
 
@@ -112,7 +109,7 @@ function positionRestart() {
 }
 
 function showStartScreen() {
-  // Fjern hidden  class fra startskærm og tilføjer til game over og level complete.
+ 
   document.querySelector("#start").classList.remove("hidden");
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
@@ -125,10 +122,10 @@ function showGameScreen() {
 }
 
 function resetLives() {
-  //Liv bliver sat til 4
+  
   lives = 3;
 
-  // nulstiller alle hearts så de ikke er grå.
+  
   document.querySelector("#heart0").classList.remove("broken_heart");
   document.querySelector("#heart1").classList.remove("broken_heart");
   document.querySelector("#heart2").classList.remove("broken_heart");
@@ -139,17 +136,17 @@ function resetLives() {
 }
 
 function resetPoints() {
-  // nulstiller points
+ 
   points = 0;
-  //nulstiller antallet af viste points
+  
   displayPoints();
 }
 
 function startTimer() {
-  // sætter timer-animationen i gang
+
   document.querySelector("#time_sprite").classList.add("shrink");
 
-  // Tilføjer en eventlistener der lytter om animationen er færdig.
+ 
   document
     .querySelector("#time_sprite")
     .addEventListener("animationend", timeIsUp);
