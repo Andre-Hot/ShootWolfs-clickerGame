@@ -231,43 +231,43 @@ function stopGame() {
   
   document
     .querySelector("#deer1_container")
-    .removeEventListener("click", duckClick);
+    .removeEventListener("click", deerClick);
   document
     .querySelector("#deer2_container")
-    .removeEventListener("click", duckClick);
+    .removeEventListener("click", deerClick);
   document
     .querySelector("#deer3_container")
-    .removeEventListener("click", duckClick);
+    .removeEventListener("click", deerClick);
   document
     .querySelector("#wolf1_container")
-    .removeEventListener("click", dogClick);
+    .removeEventListener("click", wolfClick);
   document
     .querySelector("#wolf2_container")
-    .removeEventListener("click", dogClick);
+    .removeEventListener("click", wolfClick);
   document
     .querySelector("#wolf3_container")
-    .removeEventListener("click", gooseClick);
+    .removeEventListener("click", wolfClick);
  
 
   
   document
     .querySelector("#deer1_container")
-    .classList.remove("duck_move1", "duck_move2", "duck_move3");
+    .classList.remove("deer_move1", "deer_move2", "deer_move3");
   document
     .querySelector("#deer2_container")
-    .classList.remove("duck_move1", "duck_move2", "duck_move3");
+    .classList.remove("deer_move1", "deer_move2", "deer_move3");
   document
     .querySelector("#deer3_container")
-    .classList.remove("duck_move1", "duck_move2", "duck_move3");
+    .classList.remove("deer_move1", "deer_move2", "deer_move3");
   document
     .querySelector("#wolf1_container")
-    .classList.remove("goose_move1", "goose_move2");
+    .classList.remove("wolf_move1", "wolf_move2");
   document
     .querySelector("#wolf2_container")
-    .classList.remove("goose_move1", "goose_move2");
+    .classList.remove("wolf_move1", "wolf_move2");
   document
     .querySelector("#wolf3_container")
-    .classList.remove("dog_move1", "dog_move2");
+    .classList.remove("wolf_move1", "wolf_move2");
   
   document.querySelector("#time_sprite").classList.remove("shrink");
 }
